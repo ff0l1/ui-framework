@@ -1,13 +1,1 @@
-Custom Framework
-
-The UI engine in src/engine started from Atlas.
-https://github.com/0Zayn/Atlas
-
-Icon CSS under assets/icons/fontawesome is Font Awesome Pro metadata.
-The webfonts themselves are not in this tree. Place your licensed
-.woff2 files next to the CSS if you want glyph images.
-
-Spotify and Discord credentials stay in .env. Nothing in this tree is a secret.
-
-Windows Media, WinHTTP, DirectX, OpenGL, Vulkan, and Win32 are part of the
-Windows SDK or the Vulkan SDK.
+.
