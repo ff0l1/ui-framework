@@ -1,4 +1,4 @@
-# ur
+# ui-framework
 
 Immediate-mode UI for Windows. One header, `ur::app::run`, widgets every frame. Win32 owns the window, DPI, and input. The same tree draws on Direct3D 11, Direct3D 12, or OpenGL. Vulkan is off unless you build with `-DUR_VULKAN=ON` and the Vulkan SDK.
 
