@@ -19,7 +19,7 @@ Backends: Direct3D 11, Direct3D 12, OpenGL. Vulkan is off unless `UR_VULKAN=ON`.
 Add an app:
 
 ```cmake
-ur_add_app( myapp Main.cpp )
+ur_add_app( myapp Main.cxx )
 ```
 
 Working directory should be the project root, or keep `assets/` next to the exe.

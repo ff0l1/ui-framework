@@ -78,7 +78,7 @@ def parse(css: str) -> list[tuple[str, str, int]]:
 def main() -> int:
     root = Path(__file__).resolve().parents[1]
     css_path = root / "assets" / "icons" / "fontawesome" / "fontawesome.css"
-    header = root / "include" / "ur" / "icons.hpp"
+    header = root / "include" / "ur" / "icons.hxx"
     if not css_path.exists():
         print("missing", css_path, file=sys.stderr)
         return 1
