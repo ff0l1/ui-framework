@@ -5,7 +5,7 @@ Custom Framework is immediate-mode C++ UI for Windows. It draws through Direct3D
 ## Hello
 
 ```cpp
-#include "ur/ur.hpp"
+#include "ur/ur.hxx"
 
 int WINAPI WinMain( HINSTANCE, HINSTANCE, LPSTR, int ) {
     ur::app::Config Config;
@@ -22,7 +22,7 @@ int WINAPI WinMain( HINSTANCE, HINSTANCE, LPSTR, int ) {
 }
 ```
 
-`ur_add_app(myapp Main.cpp)` in CMake links the `ur` library and copies `assets/`.
+`ur_add_app(myapp Main.cxx)` in CMake links the `ur` library and copies `assets/`.
 
 ## Frame loop
 

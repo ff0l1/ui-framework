@@ -1,30 +1,16 @@
-# Custom Framework
+# ur
 
-A custom immediate-mode C++ UI framework for Windows. You include one header, call `run`, and draw widgets every frame.
+Immediate-mode UI for Windows. One header, `ur::app::run`, widgets every frame. Win32 owns the window, DPI, and input. The same tree draws on Direct3D 11, Direct3D 12, or OpenGL. Vulkan is off unless you build with `-DUR_VULKAN=ON` and the Vulkan SDK.
 
 ![Showcase](docs/preview.png)
 
-## Graphics
+Auto tries DX11, then DX12, then OpenGL. Switching backend rebinds glyphs and fullscreen effects. The widget calls stay the same.
 
-Pick a backend at startup or switch at runtime. Auto tries them in this order:
+## What is in it
 
-| Backend | API | Notes |
-| --- | --- | --- |
-| Direct3D 11 | D3D11 + DXGI | Default path. Works on Windows 10 and 11. |
-| Direct3D 12 | D3D12 + DXGI | Same UI, newer device stack. |
-| OpenGL | WGL / desktop OpenGL | Fallback when you want GL. |
-| Vulkan | Optional | Off unless you build with `-DUR_VULKAN=ON` and have the Vulkan SDK. |
+Buttons, sliders, fields, tables, tabs, menus, plots. Frames drag, resize, and collapse. Docking, a command palette, toasts, and themes are there if you turn them on. Desk extras (now playing, audio meters, clock, orbit, Discord presence, click-through) live in the showcase, not in the twenty-line sample.
 
-The window, DPI, swapchain, and input are Win32. The same widget tree runs on every backend. Glyphs, player art, and fullscreen effects rebind when you change host.
-
-## What you get
-
-- Immediate-mode widgets: buttons, sliders, fields, tables, tabs, menus, plots
-- Floating frames that drag, resize, collapse, and hug their content
-- Docking, command palette, toasts, themes
-- Optional desk modules: now playing, system / mic audio, analog clock, 3D orbit, Discord presence, click-through overlay
-
-`Widgets`, `Frames`, and `Layout` are the full API. `ur::ui` is the short path. Widget IDs use `##` — `"OK##save"` stays unique, `"Desk###face"` shows only Desk.
+IDs use `##`. `"OK##save"` is unique. `"Desk###face"` shows as Desk.
 
 ## Build
 
@@ -35,23 +21,17 @@ cmake --preset windows-release
 cmake --build --preset windows-release
 ```
 
-| Output | What it is |
+| Output | |
 | --- | --- |
-| `build/windows-release/Hello.exe` | Twenty-line start |
-| `build/windows-release/Showcase.exe` | Full desk |
+| `build/windows-release/Hello.exe` | short start |
+| `build/windows-release/Showcase.exe` | full desk |
 
 Keep `assets/` next to the exe, or run from this directory.
-
-```cmake
--DUR_VULKAN=ON
-```
-
-turns on the Vulkan backend.
 
 ## Hello
 
 ```cpp
-#include "ur/ur.hpp"
+#include "ur/ur.hxx"
 
 int WINAPI WinMain( HINSTANCE, HINSTANCE, LPSTR, int ) {
     ur::app::Config Config;
@@ -67,31 +47,20 @@ int WINAPI WinMain( HINSTANCE, HINSTANCE, LPSTR, int ) {
 }
 ```
 
-`ur::Backend::DX11`, `DX12`, `OpenGL`, `Vulkan`, or `Auto`.
+`DX11`, `DX12`, `OpenGL`, `Vulkan`, or `Auto`.
 
-## Tree
-
-```
-include/ur          public headers
-src/app             window, settings, theme
-src/engine          widgets, layout, backends
-src/host            D3D11, D3D12, OpenGL, Vulkan hosts
-src/ui              toast, palette, motion
-src/widgets         player, orbit, desk
-src/audio           hear
-demos/hello         short start
-demos/showcase      full desk
-```
-
-[Start](docs/start.md) covers widgets, IDs, themes, and the desk modules. [Build](docs/build.md) is the compile notes.
-
-## Optional
-
-Copy `.env.example` next to the exe:
+## Files
 
 ```
-UR_DISCORD_APP_ID=
-UR_SPOTIFY_CLIENT_ID=
+include/ur     public headers
+src/app        window, settings, theme
+src/engine     widgets, layout, backends
+src/host       D3D11, D3D12, OpenGL, Vulkan
+src/ui         toast, palette, motion
+demos/hello
+demos/showcase
 ```
 
-Now playing uses the Windows media session. Discord stays off until you set an app id. Hear can follow PC output, the microphone, or both.
+Widget notes are in [docs/start.md](docs/start.md). Compile notes are in [docs/build.md](docs/build.md).
+
+Copy `.env.example` next to the exe if you want Discord (`UR_DISCORD_APP_ID`) or Spotify (`UR_SPOTIFY_CLIENT_ID`). Now playing uses the Windows media session. Hear can follow output, the mic, or both.

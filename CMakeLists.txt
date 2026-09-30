@@ -21,62 +21,62 @@ option( UR_SPOTIFY_API "Spotify Web API path" ON )
 set( Engine ${CMAKE_CURRENT_SOURCE_DIR}/src/engine )
 
 set( UrSources
-    ${Engine}/Core/Arena/Arena.cpp
-    ${Engine}/Core/Context/Context.cpp
-    ${Engine}/Core/Input/Input.cpp
-    ${Engine}/Text/Font/Font.cpp
-    ${Engine}/Text/Format/Format.cpp
-    ${Engine}/Text/Sheet/Sheet.cpp
-    ${Engine}/Interface/Layout/Layout.cpp
-    ${Engine}/Interface/Style/Style.cpp
-    ${Engine}/Interface/Widgets/Widgets.cpp
-    ${Engine}/Interface/Desktop/Docking/Docking.cpp
-    ${Engine}/Interface/Desktop/Frames/Frames.cpp
-    ${Engine}/Ports/Canvas/Canvas.cpp
-    ${Engine}/Ports/Shaders/Shaders.cpp
-    ${Engine}/Ports/Platform/Native/Native.cpp
-    ${Engine}/Ports/Platform/Pictures/Pictures.cpp
-    src/app/app.cpp
-    src/app/settings.cpp
-    src/app/theme.cpp
-    src/audio/hear.cpp
-    src/config/config.cpp
-    src/discord/discord.cpp
-    src/effects/effects.cpp
-    src/host/ElevenHost.cpp
-    src/host/TwelveHost.cpp
-    src/host/OpenGLHost.cpp
-    src/host/VulkanHost.cpp
-    src/icons/glyphs.cpp
-    src/media/media.cpp
-    src/overlay/overlay.cpp
-    src/ui/bind.cpp
-    src/ui/debug.cpp
-    src/ui/image.cpp
-    src/ui/motion.cpp
-    src/ui/palette.cpp
-    src/ui/toast.cpp
-    src/ui/view.cpp
-    src/ui/widget.cpp
-    src/widgets/desk.cpp
-    src/widgets/orbit.cpp
-    src/widgets/player.cpp
+    ${Engine}/Core/Arena/Arena.cxx
+    ${Engine}/Core/Context/Context.cxx
+    ${Engine}/Core/Input/Input.cxx
+    ${Engine}/Text/Font/Font.cxx
+    ${Engine}/Text/Format/Format.cxx
+    ${Engine}/Text/Sheet/Sheet.cxx
+    ${Engine}/Interface/Layout/Layout.cxx
+    ${Engine}/Interface/Style/Style.cxx
+    ${Engine}/Interface/Widgets/Widgets.cxx
+    ${Engine}/Interface/Desktop/Docking/Docking.cxx
+    ${Engine}/Interface/Desktop/Frames/Frames.cxx
+    ${Engine}/Ports/Canvas/Canvas.cxx
+    ${Engine}/Ports/Shaders/Shaders.cxx
+    ${Engine}/Ports/Platform/Native/Native.cxx
+    ${Engine}/Ports/Platform/Pictures/Pictures.cxx
+    src/app/app.cxx
+    src/app/settings.cxx
+    src/app/theme.cxx
+    src/audio/hear.cxx
+    src/config/config.cxx
+    src/discord/discord.cxx
+    src/effects/effects.cxx
+    src/host/ElevenHost.cxx
+    src/host/TwelveHost.cxx
+    src/host/OpenGLHost.cxx
+    src/host/VulkanHost.cxx
+    src/icons/glyphs.cxx
+    src/media/media.cxx
+    src/overlay/overlay.cxx
+    src/ui/bind.cxx
+    src/ui/debug.cxx
+    src/ui/image.cxx
+    src/ui/motion.cxx
+    src/ui/palette.cxx
+    src/ui/toast.cxx
+    src/ui/view.cxx
+    src/ui/widget.cxx
+    src/widgets/desk.cxx
+    src/widgets/orbit.cxx
+    src/widgets/player.cxx
 )
 
 if( UR_DIRECTX11 )
-    list( APPEND UrSources ${Engine}/Ports/Graphics/DirectX11/DirectX11.cpp )
+    list( APPEND UrSources ${Engine}/Ports/Graphics/DirectX11/DirectX11.cxx )
 endif( )
 
 if( UR_DIRECTX12 )
-    list( APPEND UrSources ${Engine}/Ports/Graphics/DirectX12/DirectX12.cpp )
+    list( APPEND UrSources ${Engine}/Ports/Graphics/DirectX12/DirectX12.cxx )
 endif( )
 
 if( UR_OPENGL )
-    list( APPEND UrSources ${Engine}/Ports/Graphics/OpenGL/OpenGL.cpp )
+    list( APPEND UrSources ${Engine}/Ports/Graphics/OpenGL/OpenGL.cxx )
 endif( )
 
 if( UR_VULKAN )
-    list( APPEND UrSources ${Engine}/Ports/Graphics/Vulkan/Vulkan.cpp )
+    list( APPEND UrSources ${Engine}/Ports/Graphics/Vulkan/Vulkan.cxx )
 endif( )
 
 add_library( ur STATIC ${UrSources} )
@@ -162,9 +162,9 @@ function( ur_add_app Target )
 endfunction( )
 
 if( UR_BUILD_DEMO )
-    ur_add_app( ur_showcase demos/showcase/Main.cpp )
+    ur_add_app( ur_showcase demos/showcase/Main.cxx )
     set_target_properties( ur_showcase PROPERTIES OUTPUT_NAME Showcase )
 
-    ur_add_app( ur_hello demos/hello/Main.cpp )
+    ur_add_app( ur_hello demos/hello/Main.cxx )
     set_target_properties( ur_hello PROPERTIES OUTPUT_NAME Hello )
 endif( )
